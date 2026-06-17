@@ -15,6 +15,6 @@
 <ul>
   <li>Cardenas Panduro, Ricardo Gabriel (Rick2425) (20241376) </li>
   <li>Tuppia Paitan, Joaquin Francisco (JTPXD) (20241405)</li>
-  <li>Quispe Garcia Francisco Alberto (panchop35)</li>
+  <li>Quispe Garcia Francisco Alberto (panchop35) (20240729)</li>
   <li></li>
 </ul>
