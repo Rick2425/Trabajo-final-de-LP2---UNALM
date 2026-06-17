@@ -1,2 +1,20 @@
-# Trabajo-final-de-LP2---UNALM
-Este repositorio fue creado para un proyecto de Webscrapping con temática de "Prototipo de sistema para detectar publicaciones políticas con posible desinformación en redes sociales mediante web scraping y análisis automatizado de texto"
+<h1 align="center"> <b>UNIVERSIDAD NACIONAL AGRARIA LA MOLINA</b> </h3>
+<h2 align="center"> <b>DEPARTAMENTO ACADÉMICO DE ESTADÍSTICA E INFORMÁTICA</b> </h2>
+<p align="center">
+  <img src="https://seeklogo.com/images/U/universidad-nacional-agraria-la-molina-logo-5BF0B8D973-seeklogo.com.png" 
+       alt="La Molina Perú" 
+       width="170" 
+       height="170">
+</p>
+<h3 align="center">
+  <b>PROTOTIPO DE SISTEMA PARA DETECTAR PUBLICACIONES POLÍTICAS CON POSIBLE DESINFORMACIÓN EN REDES SOCIALES MEDIANTE WEB SCRAPING Y ANÁLISIS AUTOMATIZADO DE TEXTO</b>
+</h3>
+
+<h3> <b>Integrantes del equipo:</b> </h3>
+
+<ul>
+  <li>Cardenas Panduro, Ricardo Gabriel (Rick2425) (20241376) </li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
