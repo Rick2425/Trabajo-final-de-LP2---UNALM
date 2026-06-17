@@ -14,7 +14,7 @@
 
 <ul>
   <li>Cardenas Panduro, Ricardo Gabriel (Rick2425) (20241376) </li>
-  <li></li>
+  <li>Tuppia Paitan, Joaquin Francisco (JTPXD) (20241405)</li>
   <li></li>
   <li></li>
 </ul>
