@@ -1,0 +1,2 @@
+﻿fecha_extraccion,fuente,metodo,videos_procesados,comentarios_objetivo_por_video,comentarios_totales_extraidos,archivo_comentarios,archivo_log
+2026-06-17 16:38:28,YouTube,YouTube Data API v3,5,300,1338,comentarios_youtube_raw.csv,log_extraccion_youtube.csv
