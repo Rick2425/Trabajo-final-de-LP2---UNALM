@@ -21,6 +21,7 @@
 
 </ul> 
 ---
+
 ## 1. Planteamiento y justificación del problema 
 
 ### 1.1. Descripción del problema 
