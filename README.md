@@ -18,3 +18,13 @@
   <li>Tuppia Paitan, Joaquin Francisco (JTPXD) (20241405)</li>
   <li>Quispe Garcia Francisco Alberto (panchop35) (20240729)</li>
 </ul>
+
+</ul> 
+---
+## 1. Planteamiento y justificación del problema 
+
+### 1.1. Descripción del problema 
+
+Youtube se ha convertido en una plataforma relevante para la difusión de contenido político, especialmente a través de transmisiones en vivo, entrevistas, debates, reportajes y coberturas de coyuntura. En estos espacios, los comentarios de los usuarios pueden reflejar opiniones, rumores, afirmaciones no verificadas, discursos alarmistas o mensajes repetidos que contribuyen a la circulación de posible desinformación política. 
+
+El problema no se limita al contenido publicado por los canales, sino tambien a la interacción generada en torno a los videos. Los comentarios pueden amplificar narrativas como fraude, manipulación, censura, corrupción o desconfianza institucional, muchas veces sin citar fuentes verificables. Además, el uso de LLMs y herramientas automatizadas facilita la generación masiva de mensajes persuasivos o repetitivos, lo que dificulta la revisión manual. 
