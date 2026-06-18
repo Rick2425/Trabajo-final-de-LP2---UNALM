@@ -30,3 +30,4 @@ Youtube se ha convertido en una plataforma relevante para la difusión de conten
 El problema no se limita al contenido publicado por los canales, sino tambien a la interacción generada en torno a los videos. Los comentarios pueden amplificar narrativas como fraude, manipulación, censura, corrupción o desconfianza institucional, muchas veces sin citar fuentes verificables. Además, el uso de LLMs y herramientas automatizadas facilita la generación masiva de mensajes persuasivos o repetitivos, lo que dificulta la revisión manual. 
 
 Por ello, se plantea un prototipo que extrae comentarios públicos de videos políticos en Youtube mediante la Youtube Data API v3, los almacena en formato CSV y aplica técnicas de tex mining para identificar patrones lingüisticos asociados a posible desinformación política. El sistema no busca determinar de forma absoluta si un comentario es falso, sino detectar señales de riesgo que puedan orientar una revisión humana posterior. 
+
