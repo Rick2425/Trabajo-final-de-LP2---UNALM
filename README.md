@@ -37,6 +37,19 @@ Por ello, se plantea un prototipo que extrae comentarios públicos de videos pol
 
 Diseñar un prototipo para recopilar y analizar comentarios públicos de videos políticos en Youtube, con el fin de identificar señales textuales asociados a posible desinformación política mediante text mining y un sistema de puntaje de riesgo. 
 
+### 2.1. Objetivos Específicos
+
+* Extraer comentarios públicos de videos políticos de Youtube mediante la Youtube Data API v3. 
+
+* Construir un dataset en formato CSV con metadatos del video y comentarios anonimizados. 
+
+* Aplicar técnicas de text mining en R, como tokenización, eliminación de stopwords, frecuencia de palabras, análisis de sentimientos y nube de palabras. 
+
+* Implementar en Python un sistema de puntaje para clasificar comentarios según señales de posible desinformación.
+
+* Evaluar los resultados mediante tablas, fráficos y revisión manual de una muestra de comentarios.
+
+
 
 
 
