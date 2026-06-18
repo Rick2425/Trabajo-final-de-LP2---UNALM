@@ -49,7 +49,9 @@ Diseñar un prototipo para recopilar y analizar comentarios públicos de videos 
 
 * Evaluar los resultados mediante tablas, fráficos y revisión manual de una muestra de comentarios.
 
+### 2.2. Alcance del prototipo
 
+El prototipo se limita al análisis de comentarios públicos de una muestra de videos polítivos de Youtube. La extracción se realiza por lotes, no en tiempo real, y considera un máximo aproximado de 300 comentarios por video. El sistema no acusa a usuarios ni determina la falsedad absoluta de los mensajes; unicamente identifica indicadores de riesgo, como lenguaje alarmista, menciones a fraude, llamados a compartir, ausencia de fuentes verificables, alta carga emocional o repetición de términos asociados a desinformación. 
 
 
 
