@@ -31,3 +31,14 @@ El problema no se limita al contenido publicado por los canales, sino tambien a 
 
 Por ello, se plantea un prototipo que extrae comentarios públicos de videos políticos en Youtube mediante la Youtube Data API v3, los almacena en formato CSV y aplica técnicas de tex mining para identificar patrones lingüisticos asociados a posible desinformación política. El sistema no busca determinar de forma absoluta si un comentario es falso, sino detectar señales de riesgo que puedan orientar una revisión humana posterior. 
 
+## 2. Objetivos 
+
+### 2.1. Objetivo General 
+
+Diseñar un prototipo para recopilar y analizar comentarios públicos de videos políticos en Youtube, con el fin de identificar señales textuales asociados a posible desinformación política mediante text mining y un sistema de puntaje de riesgo. 
+
+
+
+
+
+
