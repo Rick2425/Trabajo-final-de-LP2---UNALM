@@ -17,5 +17,4 @@
   <li>Meza Mitma, Liz Maritza (Mezaliz96) (20220771) </li>
   <li>Tuppia Paitan, Joaquin Francisco (JTPXD) (20241405)</li>
   <li>Quispe Garcia Francisco Alberto (panchop35) (20240729)</li>
-  <li></li>
 </ul>
