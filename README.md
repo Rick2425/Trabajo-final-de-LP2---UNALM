@@ -83,5 +83,24 @@ A partir de la ejecución del script en Python y los archivos resultantes recopi
 | **Variables de Análisis Semántico y Emocional** | `categoria` | Categórica (Nominal) | Clasificación de términos en dimensiones clave según el diccionario de equivalencias políticas: `partido_politico`, `tema_electoral` o `riesgo_desinformacion` (ej. "fraude"). |
 | **Variables de Análisis Semántico y Emocional** | `sentimiento` | Categórica (Nominal) | La carga emocional asignada a cada término detectado mediante el cruce con el diccionario `sentimientos_2.txt` (ej. ira, miedo, confianza, alegría, tristeza). |
 
+## 7. Ética, limitaciones y reflexión sobre LLMs
+
+### 7.1. Consideraciones Éticas en el Manejo de Datos Textuales
+* No extraer datos sensibles: Al momento de descargar los comentarios con la herramienta de YouTube, nos aseguramos de no guardar ningún dato privado de los usuarios, como correos electrónicos, ubicaciones exactas o datos personales que no fueran necesarios para el estudio.
+* Anonimizar usuarios: En el archivo final donde trabajamos los textos, eliminamos por completo los nombres de usuario reales, las fotos de perfil y los enlaces a sus canales. A cada comentario le pusimos un número de orden (como un código anónimo) para analizar lo que decía el texto sin saber quién lo escribió, protegiendo así la privacidad de las personas.
+* No acusar directamente a personas: Nuestro análisis se enfoca en ver el comportamiento del público en general (qué palabras o emociones se repiten más). En ningún momento señalamos, buscamos o acusamos a usuarios específicos de estar publicando noticias falsas o contenido malicioso.
+
+### 7.2. Limitaciones Técnicas y Riesgos de Falsos Positivos
+* Riesgos de falsos positivos: Como el programa analiza los comentarios buscando palabras exactas usando una lista predeterminada (diccionario), no es capaz de entender el sarcasmo, las bromas o la ironía. Por ejemplo, si alguien escribe un comentario de burla que dice: *"¡Claro, por supuesto que hubo un tremendo fraude electoral!"*, el programa leerá la palabra "fraude" y la clasificará automáticamente como un riesgo de desinformación, cuando en realidad el usuario estaba siendo irónico.
+* Limitaciones técnicas: Al depender de una lista fija de palabras para medir los sentimientos, si los usuarios escriben palabras nuevas que no están en nuestra lista, o si cometen faltas de ortografía muy graves, el programa simplemente las ignorará y no podrá calcular la emoción de ese comentario.
+
+### 7.3. Reflexión Metodológica sobre el Uso de LLMs 
+* Qué partes se hicieron con LLMs: Usamos la Inteligencia Artificial principalmente como un asistente de programación. Nos ayudó a escribir códigos difíciles en R y Python, a limpiar los textos de forma rápida (como quitar enlaces de internet o símbolos extraños) y a diseñar los gráficos para que se vean ordenados y profesionales en el reporte web.
+* Qué partes se revisaron manualmente: Toda la lista de palabras de partidos políticos peruanos (como agrupar "Keiko", "Fujimori" y "FP" bajo un mismo concepto) y la limpieza del archivo Excel de palabras comunes se revisaron a mano, uno por uno. Esto se hizo así porque una Inteligencia Artificial general no siempre entiende los modismos o el contexto político de nuestro país.
+* Cómo ayudó o dificultó el LLM: 
+  * *Cómo ayudó:* Nos ahorró muchísimo tiempo al momento de programar. Nos dio las fórmulas exactas para limpiar el texto y armar los gráficos sin que el código tuviera errores.
+  * *Dificultad o riesgo:* Evaluamos la idea de que la IA leyera y clasificara las emociones de cada comentario por su cuenta, pero nos dimos cuenta de que las Inteligencias Artificiales a veces "inventan" respuestas (alucinan) o pueden tener opiniones sesgadas. Para que nuestro trabajo fuera transparente y cualquiera pudiera replicarlo con los mismos resultados, preferimos usar nuestra propia lista física de sentimientos en lugar de dejarle todo el control a una IA.
+
+
 
 
