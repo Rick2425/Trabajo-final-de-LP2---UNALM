@@ -572,40 +572,33 @@ if (nrow(frecuencia_partidos) > 0) {
 
 
 # ============================================================
-# 17. FRECUENCIA PARA NUBE DE PALABRAS
+# 17. FRECUENCIA PARA NUBE DE PALABRAS 
+# Usamos las palabras originales separadas y borramos el "no"
 # ============================================================
 
 frecuencia_palabras <- tokens_final %>%
-  count(palabra_final, sort = TRUE) %>%
-  slice_max(n, n = 50, with_ties = FALSE)
+  filter(palabra_original != "no") %>% 
+  count(palabra_original, sort = TRUE) %>% # Contamos sin agrupar
+  slice_max(n, n = 80, with_ties = FALSE)  # Top 80 
 
 frecuencia_palabras
 
-
 # ============================================================
-# 18. NUBE DE PALABRAS CON FORMA DE NUBE
-# Abre en navegador y guarda PNG
+# 18. NUBE DE PALABRAS CON ESTILO 
 # ============================================================
 
 frecuencia_nube <- frecuencia_palabras %>%
   rename(
-    palabra = palabra_final,
+    palabra = palabra_original,
     frecuencia = n
   )
 
-set.seed(123)
-
-colores_nube <- sample(
-  c("#0B3C5D", "#1D65A6", "#328CC1", "#5DADE2", "#85C1E9"),
-  size = nrow(frecuencia_nube),
-  replace = TRUE
-)
-
+# Le devolvemos los colores variados de tu diseño original
 nube_youtube <- wordcloud2(
   data = frecuencia_nube,
-  size = 0.85,
+  size = 0.8,
   shape = "cloud",
-  color = colores_nube,
+  color = "random-dark", 
   backgroundColor = "white",
   rotateRatio = 0.05,
   fontFamily = "sans-serif"
@@ -649,3 +642,88 @@ frecuencia_general
 top_10_palabras
 frecuencia_categorias
 frecuencia_partidos
+
+# ============================================================
+# 20. DASHBOARD INTERACTIVO DE RESULTADOS
+# ============================================================
+library(shiny)
+library(shinydashboard)
+library(DT)
+library(wordcloud2)
+
+# UI del Dashboard
+ui <- dashboardPage(
+  skin = "black",
+  dashboardHeader(title = "Métricas y Text Mining"),
+  
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Métricas Generales", tabName = "resumen", icon = icon("dashboard")),
+      menuItem("Nube Política", tabName = "nube", icon = icon("cloud")),
+      menuItem("Base de Tokens", tabName = "datos", icon = icon("table"))
+    )
+  ),
+  
+  dashboardBody(
+    tabItems(
+      # Pestaña 1: Gráfico de Ricardo ya diseñado
+      tabItem(tabName = "resumen",
+              fluidRow(
+                valueBoxOutput("total_tokens", width = 6),
+                valueBoxOutput("top_termino", width = 6)
+              ),
+              fluidRow(
+                box(title = "Top 10 Términos (Diseño Salinas)", status = "primary", solidHeader = TRUE, width = 12,
+                    plotOutput("grafico_ricardo", height = "450px"))
+              )
+      ),
+      
+      # Pestaña 2: La nube ya limpia
+      tabItem(tabName = "nube",
+              fluidRow(
+                box(title = "Nube de Palabras Política", status = "warning", solidHeader = TRUE, width = 12,
+                    wordcloud2Output("nube_plot", height = "500px"))
+              )
+      ),
+      
+      # Pestaña 3: Tabla de frecuencias generales
+      tabItem(tabName = "datos",
+              fluidRow(
+                box(title = "Frecuencia de Términos", status = "info", solidHeader = TRUE, width = 12,
+                    DTOutput("tabla_tokens"))
+              )
+      )
+    )
+  )
+)
+
+# Servidor del Dashboard
+server <- function(input, output) {
+  
+  output$total_tokens <- renderValueBox({
+    valueBox(nrow(tokens_final), "Tokens Analizados", icon = icon("check-circle"), color = "green")
+  })
+  
+  output$top_termino <- renderValueBox({
+    termino_estrella <- top_10_palabras$palabra_final[1]
+    valueBox(termino_estrella, "Término más frecuente", icon = icon("star"), color = "yellow")
+  })
+  
+  # Llama al gráfico tal cual lo dejó Ricardo (con fondo khaki1)
+  output$grafico_ricardo <- renderPlot({
+    grafico_top10 
+  })
+  
+  # Llama a la nube que acabas de limpiar en la sección 18
+  output$nube_plot <- renderWordcloud2({
+    nube_youtube
+  })
+  
+  output$tabla_tokens <- renderDT({
+    datatable(frecuencia_general, 
+              options = list(pageLength = 10, scrollX = TRUE),
+              colnames = c("Término Normalizado", "Frecuencia"))
+  })
+}
+
+shinyApp(ui, server)
