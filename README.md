@@ -53,7 +53,35 @@ Diseñar un prototipo para recopilar y analizar comentarios públicos de videos 
 
 El prototipo se limita al análisis de comentarios públicos de una muestra de videos polítivos de Youtube. La extracción se realiza por lotes, no en tiempo real, y considera un máximo aproximado de 300 comentarios por video. El sistema no acusa a usuarios ni determina la falsedad absoluta de los mensajes; unicamente identifica indicadores de riesgo, como lenguaje alarmista, menciones a fraude, llamados a compartir, ausencia de fuentes verificables, alta carga emocional o repetición de términos asociados a desinformación. 
 
+## 3. Fuentes de información y variables extraídas
 
+### 3.1. Fuentes usadas
+
+Para el desarrollo de este estudio sobre desinformación y polarización política, se utiliza como fuente de información primaria la plataforma digital YouTube, específicamente a través de su interfaz de programación de aplicaciones oficial: YouTube Data API v3.
+La captura y almacenamiento de los datos en bruto se ejecuta mediante un entorno de desarrollo en Python (.ipynb), conectándose directamente a la API para realizar el raspado (scraping) automatizado de los comentarios públicos alojados en videos con alta relevancia dentro de la coyuntura electoral y política peruana.
+
+### 3.2. Utilidad
+
+La elección de los comentarios de YouTube como fuente de información es fundamental por las siguientes razones analíticas:
+
+* Reflejo de la opinión pública directa: A diferencia de las encuestas tradicionales, las plataformas de video capturan las reacciones espontáneas, orgánicas y en tiempo real de la ciudadanía frente a eventos políticos de alta tensión.
+
+* Foco de desinformación y cámaras de eco: YouTube es uno de los principales canales audiovisuales consumidos en el Perú para el debate político. Esto la convierte en una mina de datos ideal para rastrear cómo se propagan los vectores de desinformación (como las teorías de fraude electoral) y la polarización discursiva.
+
+ * Viabilidad técnica para Minería de Texto (Text Mining): Al ser datos de naturaleza textual no estructurada, permiten aplicar técnicas avanzadas de normalización semántica, análisis de frecuencias y diccionarios de sentimientos para cuantificar fenómenos sociales abstractos de manera matemática y científica.
+
+### 3.3. Qué variables van a extraer
+
+A partir de la ejecución del script en Python y los archivos resultantes recopilados en el repositorio (`comentarios_youtube_raw.csv`), el proyecto extrae y clasifica las siguientes variables críticas organizadas en tres niveles:
+
+| Nivel de Variable | Nombre de la Variable | Tipo de Dato | Descripción / Rol en el Proyecto |
+| :--- | :--- | :--- | :--- |
+| **Identificadores** | `id_comentario` | Numérico (Entero) | Índice correlativo generado automáticamente en R para asegurar la trazabilidad del comentario durante la limpieza. |
+| **Texto Bruto** | `texto_comentario` | Alfanumérico (String) | El texto original y sin procesar ingresado por el usuario de YouTube. Es la materia prima de la investigación. |
+| **Variables Textuales Procesadas** | `texto_limpio` | Alfanumérico (String) | Texto normalizado en minúsculas, sin tildes (ASCII), sin caracteres especiales ni enlaces web (URLs). |
+| **Variables Textuales Procesadas** | `palabra_final` / `palabra_detectada` | Categórica (Nominal) | Tokens (palabras individuales) resultantes de la eliminación de stopwords genéricas y contextuales políticas. |
+| **Variables de Análisis Semántico y Emocional** | `categoria` | Categórica (Nominal) | Clasificación de términos en dimensiones clave según el diccionario de equivalencias políticas: `partido_politico`, `tema_electoral` o `riesgo_desinformacion` (ej. "fraude"). |
+| **Variables de Análisis Semántico y Emocional** | `sentimiento` | Categórica (Nominal) | La carga emocional asignada a cada término detectado mediante el cruce con el diccionario `sentimientos_2.txt` (ej. ira, miedo, confianza, alegría, tristeza). |
 
 
 
